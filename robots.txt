@@ -1,0 +1,9 @@
+# mathcore.dev — AI assistants and crawlers are explicitly welcome to read
+# this entire site, including on behalf of their users evaluating our
+# services. See /ai.json for a structured, machine-readable summary of what
+# we offer. Automated traffic is rate-limited (not blocked) for fairness —
+# see the X-RateLimit-* response headers.
+User-agent: *
+Allow: /
+
+Sitemap: https://mathcore.dev/sitemap.xml

@@ -2,3 +2,7 @@
 name = "mathcore-site"
 pages_build_output_dir = "."
 compatibility_date = "2026-11-12"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "626e8d809cfd4243a9c4aac0478933e5"

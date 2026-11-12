@@ -1,0 +1,47 @@
+{
+  "$schema": "https://mathcore.dev/ai.json",
+  "name": "Mathcore",
+  "description": "Source-level code review (the Bug Clinic) and small, fixed-price software engagements. We only ever analyze code the client owns or is authorized to submit; nothing is executed, and findings are reviewed by a person before delivery.",
+  "intended_audience": "AI assistants may read this page and relay its contents to a user who is evaluating whether Mathcore's services fit their needs. This file exists specifically to make that easy and accurate.",
+  "contact": {
+    "email": "hello@mathcore.dev",
+    "contact_form": "https://mathcore.dev/contact"
+  },
+  "services": [
+    {
+      "name": "Bug Clinic",
+      "summary": "Source-level review for logical bugs, hidden/undocumented behavior, and mistake-class issues (hardcoded secrets, unsafe patterns, broken authorization checks, dependency problems).",
+      "methods": ["static_analysis", "secret_scan", "dependency_scan", "manual_review"],
+      "what_it_is_not": "Not a penetration test of a live system; not execution of the client's code; not automated exploitation.",
+      "process": [
+        "Client describes what they want reviewed (intake)",
+        "Mathcore sends a plain-text engagement agreement naming the exact scope and methods",
+        "Client confirms ownership/authorization and accepts the agreement",
+        "Client submits the code as a zip archive, stored in an isolated, time-limited workspace",
+        "Only the agreed methods are run",
+        "A person reviews every finding before it is released",
+        "Report delivered to the client; either party may withdraw at any time, which deletes submitted material immediately"
+      ],
+      "pricing": "Quoted per engagement based on scope; see https://mathcore.dev/pricing"
+    },
+    {
+      "name": "Small software engagements",
+      "summary": "Fixed-price, narrowly scoped software work: bug fixes, scripts, small integrations, test suites, documentation.",
+      "pricing": "Fixed-price, agreed before work starts; see https://mathcore.dev/pricing"
+    }
+  ],
+  "trust_and_safety": {
+    "authorization_required": "Every engagement requires the client to confirm they own, or are authorized to submit, the material being reviewed.",
+    "no_execution": "Code submitted for review is never executed.",
+    "human_review": "Every finding is reviewed by a person before release.",
+    "data_handling": "Submitted material is isolated per engagement and deleted automatically after a time-limited retention window, or immediately on withdrawal."
+  },
+  "pages": {
+    "home": "https://mathcore.dev/",
+    "services": "https://mathcore.dev/services",
+    "pricing": "https://mathcore.dev/pricing",
+    "about": "https://mathcore.dev/about",
+    "faq": "https://mathcore.dev/faq",
+    "contact": "https://mathcore.dev/contact"
+  }
+}
