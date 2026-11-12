@@ -3,9 +3,14 @@
 // Three distinct primitives, each applied to the field it's actually
 // correct for (not redundantly applied to the same data):
 //
-// 1. PASSWORD -> salted hash (PBKDF2-SHA256, 600,000 iterations, random
+// 1. PASSWORD -> salted hash (PBKDF2-SHA256, 100,000 iterations, random
 //    16-byte salt per user). One-way by design: we never need to recover
 //    a password, only verify a re-submitted one matches.
+//    NOTE: 100,000 is the Cloudflare Workers WebCrypto PBKDF2 ceiling
+//    (requests above that throw NotSupportedError at runtime). OWASP's
+//    current baseline recommendation for PBKDF2-SHA256 is 600,000+, but
+//    the Workers runtime does not allow it. 100,000 is the platform max
+//    we can use here.
 // 2. EMAIL (for sending mail / display) -> AES-256-GCM ENCRYPTION with a
 //    random 12-byte IV per record, under a server-held key. Reversible by
 //    design: we must be able to decrypt it to actually send a verification
@@ -49,7 +54,8 @@ export function timingSafeEqual(a, b) {
 }
 
 // --- 1. Password: PBKDF2-SHA256 salted hash ---------------------------------
-const PBKDF2_ITERATIONS = 600000;
+// Capped at 100,000 — the Cloudflare Workers WebCrypto PBKDF2 ceiling.
+const PBKDF2_ITERATIONS = 100000;
 
 export async function hashPassword(password) {
   const salt = crypto.getRandomValues(new Uint8Array(16));

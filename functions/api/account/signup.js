@@ -41,35 +41,39 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ ok: true }); // honeypot
   }
 
-  const lookupHash = await emailLookupHash(email, env.EMAIL_LOOKUP_KEY);
-  const existing = await env.USERS_DB.prepare("SELECT id FROM users WHERE email_lookup_hash = ?")
-    .bind(lookupHash).first();
-  if (existing) {
-    return Response.json({ ok: false, error: "an account with this email already exists" }, { status: 409 });
+  try {
+    const lookupHash = await emailLookupHash(email, env.EMAIL_LOOKUP_KEY);
+    const existing = await env.USERS_DB.prepare("SELECT id FROM users WHERE email_lookup_hash = ?")
+      .bind(lookupHash).first();
+    if (existing) {
+      return Response.json({ ok: false, error: "an account with this email already exists" }, { status: 409 });
+    }
+
+    const { ciphertext, iv } = await encryptEmail(email, env.EMAIL_ENC_KEY);
+    const { hash, salt } = await hashPassword(password);
+    const id = randomToken(16);
+    const verificationToken = randomToken(32);
+    const verificationTokenHash = await sha256Hex(verificationToken);
+    const now = new Date();
+    const expires = new Date(now.getTime() + 24 * 3600 * 1000).toISOString();
+
+    await env.USERS_DB.prepare(
+      `INSERT INTO users (id, email_lookup_hash, email_encrypted, email_iv, password_hash,
+         password_salt, verified, verification_token_hash, verification_expires_at, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?, ?)`
+    ).bind(id, lookupHash, ciphertext, iv, hash, salt, verificationTokenHash, expires, now.toISOString()).run();
+
+    // NOTE: the verification email itself is not yet sendable to the user's own
+    // address (see module docstring). The token above is ready to use the
+    // moment that capability exists; nothing else about signup needs to change.
+    return Response.json({
+      ok: true,
+      verified: false,
+      note: "Account created. Email verification is not yet available on this deployment; your account is active but unverified.",
+    });
+  } catch (e) {
+    return Response.json({ ok: false, error: "internal error", detail: String(e && e.stack || e) }, { status: 500 });
   }
-
-  const { ciphertext, iv } = await encryptEmail(email, env.EMAIL_ENC_KEY);
-  const { hash, salt } = await hashPassword(password);
-  const id = randomToken(16);
-  const verificationToken = randomToken(32);
-  const verificationTokenHash = await sha256Hex(verificationToken);
-  const now = new Date();
-  const expires = new Date(now.getTime() + 24 * 3600 * 1000).toISOString();
-
-  await env.USERS_DB.prepare(
-    `INSERT INTO users (id, email_lookup_hash, email_encrypted, email_iv, password_hash,
-       password_salt, verified, verification_token_hash, verification_expires_at, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?, ?)`
-  ).bind(id, lookupHash, ciphertext, iv, hash, salt, verificationTokenHash, expires, now.toISOString()).run();
-
-  // NOTE: the verification email itself is not yet sendable to the user's own
-  // address (see module docstring). The token above is ready to use the
-  // moment that capability exists; nothing else about signup needs to change.
-  return Response.json({
-    ok: true,
-    verified: false,
-    note: "Account created. Email verification is not yet available on this deployment; your account is active but unverified.",
-  });
 }
 
 export async function onRequestGet() {
