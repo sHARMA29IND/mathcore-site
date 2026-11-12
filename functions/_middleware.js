@@ -45,7 +45,10 @@ export async function onRequest({ request, next, env }) {
   // No KV bound (e.g. local preview without the binding configured): fail
   // open rather than breaking the whole site over a rate-limit feature.
   if (!env.RATE_LIMIT_KV) {
-    return next();
+    const response = await next();
+    const headers = new Headers(response.headers);
+    headers.set("X-RateLimit-Debug", "no-kv-binding");
+    return new Response(response.body, { status: response.status, headers });
   }
 
   const key = clientKey(request);
