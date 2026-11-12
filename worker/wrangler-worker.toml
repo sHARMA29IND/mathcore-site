@@ -1,0 +1,10 @@
+name = "mathcore-contact-mail"
+main = "mail-relay.js"
+compatibility_date = "2026-11-12"
+
+[[send_email]]
+name = "EMAIL"
+destination_address = "sahil.sitaram.sharma@gmail.com"
+
+[vars]
+MAIL_FROM = "forms@mathcore.dev"

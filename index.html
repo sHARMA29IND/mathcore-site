@@ -115,11 +115,29 @@
       <a class="cta-secondary" href="mailto:hello@mathcore.dev">hello@mathcore.dev</a>
     </div>
   </section>
+
+  <section class="wrap page-section">
+    <h2>Occasional updates</h2>
+    <p>Leave your email for occasional updates on new services or relevant
+      write-ups — nothing frequent, no third party ever sees this list, and
+      every email includes a one-click unsubscribe link.</p>
+    <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start;">
+      <input type="email" name="email" required maxlength="200" placeholder="you@example.com"
+        style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; color:var(--fg); padding:10px 12px; font:inherit; min-width:240px;">
+      <div style="position:absolute; left:-9999px;" aria-hidden="true">
+        <input name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="cta" type="submit">Subscribe</button>
+    </form>
+    <p id="subscribe-status" class="form-status" role="status"></p>
+  </section>
 </main>
 
 <footer class="site-footer wrap">
   <p>&copy; 2026 Mathcore. All rights reserved.</p>
   <p><a href="/about">About</a> &middot; <a href="/faq">FAQ</a> &middot; <a href="/legal">Legal</a> &middot; <a href="/contact">Contact</a></p>
 </footer>
+
+<script src="/js/subscribe.js"></script>
 </body>
 </html>
