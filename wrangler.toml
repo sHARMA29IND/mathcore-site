@@ -1,0 +1,4 @@
+# Cloudflare Pages project config (Pages Functions/compat are unused — static only).
+name = "mathcore-site"
+pages_build_output_dir = "."
+compatibility_date = "2026-11-12"

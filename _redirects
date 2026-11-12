@@ -1,0 +1,2 @@
+# www -> apex, preserving path, permanent redirect.
+https://www.mathcore.dev/* https://mathcore.dev/:splat 301!
