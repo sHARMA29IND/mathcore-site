@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; manifest-src 'self'
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-0rvCVomMapTx4nmCLNDn+/hJ5Sv4FYZcGgNiEmqBI/U=' 'sha256-JmEipHyGkrJqSpAEbnus9H9py2HIPNb6IsQNnNGsjc0=' 'sha256-NFnBmzkncDXrT/u9ALpZIczWpO7+lyAmKVCs98Y98R8=' 'sha256-S/YXe9E2fiwpE/2uz1jIiWLv3gvO3iq271xOlqtloc0='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; manifest-src 'self'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -8,3 +8,13 @@
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
   X-XSS-Protection: 0
+
+# NOTE on the script-src hashes above: each permits exactly one inline
+# JSON-LD block (index/services/about/faq.html) by its SHA-256 content hash,
+# because CSP's 'self' does not cover inline <script> content and
+# 'unsafe-inline' was deliberately avoided (it would also allow arbitrary
+# injected scripts, not just our structured data). If you edit any JSON-LD
+# block's content, its hash changes and you must recompute and update it
+# here, or that page's structured data will be silently blocked by the
+# browser (search engines/AI crawlers reading the raw HTML are unaffected;
+# only a browser enforcing this CSP would drop it).

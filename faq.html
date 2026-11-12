@@ -5,19 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ — Mathcore</title>
 <meta name="description" content="Common questions about the Bug Clinic, pricing, scope, and how Mathcore handles your code.">
+<link rel="canonical" href="https://mathcore.dev/faq">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mathcore">
+<meta property="og:title" content="FAQ — Mathcore">
+<meta property="og:description" content="Common questions about the Bug Clinic, pricing, scope, and how Mathcore handles your code.">
+<meta property="og:url" content="https://mathcore.dev/faq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FAQ — Mathcore">
+<meta name="twitter:description" content="Common questions about the Bug Clinic, pricing, and how we handle your code.">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="ai-info" href="/ai.json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Do I need to own the code I submit?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes — you must own it, or be authorized by its owner to submit it. This is confirmed as part of every signed engagement."}},
+    {"@type": "Question", "name": "Will you run or deploy my application?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Review is source-level only: static analysis, secret scanning, dependency checks, and manual reading. Your application is never executed."}},
+    {"@type": "Question", "name": "What happens to my code after the review?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It is stored in an isolated workspace for the engagement, expires automatically after the review window, and either party may withdraw at any time, which deletes it immediately."}},
+    {"@type": "Question", "name": "Who sees the findings?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Only the client. Every report is reviewed by a person before release and never shared with anyone else."}},
+    {"@type": "Question", "name": "How is this priced?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Each engagement is quoted individually based on scope, after intake and before any work begins."}},
+    {"@type": "Question", "name": "How do I start?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Use the contact form at mathcore.dev/contact or email hello@mathcore.dev."}}
+  ]
+}
+</script>
 </head>
 <body>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">mathcore<span class="dot">.dev</span></a>
     <nav>
-      <a href="/services.html">Services</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/about.html">About</a>
-      <a href="/faq.html" class="active">FAQ</a>
-      <a href="/contact.html">Contact</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/faq" class="active">FAQ</a>
+      <a href="/contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -56,7 +85,7 @@
     <details class="faq-item">
       <summary>How is this priced?</summary>
       <p>We quote each engagement individually based on scope, after
-        intake and before any work begins. See <a href="/pricing.html" style="color: var(--accent);">Pricing</a>
+        intake and before any work begins. See <a href="/pricing" style="color: var(--accent);">Pricing</a>
         for how we get to a number.</p>
     </details>
     <details class="faq-item">
@@ -68,7 +97,7 @@
     </details>
     <details class="faq-item">
       <summary>How do I start?</summary>
-      <p>Use the <a href="/contact.html" style="color: var(--accent);">contact form</a>
+      <p>Use the <a href="/contact" style="color: var(--accent);">contact form</a>
         or email <a href="mailto:hello@mathcore.dev" style="color: var(--accent);">hello@mathcore.dev</a>
         with what you'd like reviewed. We'll follow up with a scope and a
         quote before anything begins.</p>
@@ -77,13 +106,13 @@
 
   <section class="wrap contact">
     <h2>Still have a question?</h2>
-    <p><a class="cta" href="/contact.html">Ask us</a></p>
+    <p><a class="cta" href="/contact">Ask us</a></p>
   </section>
 </main>
 
 <footer class="site-footer wrap">
   <p>&copy; 2026 Mathcore. All rights reserved.</p>
-  <p><a href="/about.html">About</a> &middot; <a href="/faq.html">FAQ</a> &middot; <a href="/contact.html">Contact</a></p>
+  <p><a href="/about">About</a> &middot; <a href="/faq">FAQ</a> &middot; <a href="/contact">Contact</a></p>
 </footer>
 </body>
 </html>
