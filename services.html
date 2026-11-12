@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Services — Mathcore</title>
-<meta name="description" content="The Bug Clinic and small software engagements offered by Mathcore.">
+<meta name="description" content="The Bug Clinic and small software engagements offered by Mathcore: how each one works, step by step.">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -13,19 +13,26 @@
     <a class="brand" href="/">mathcore<span class="dot">.dev</span></a>
     <nav>
       <a href="/services.html" class="active">Services</a>
-      <a href="/#contact">Contact</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="wrap">
+  <section class="page-intro wrap">
     <h1>Services</h1>
+    <p class="lede">Two ways to work with us: a scoped code review (the Bug
+      Clinic), or a small, fixed-price piece of software work. Both start
+      the same way — you tell us what you need, we agree the scope in
+      writing, then we start.</p>
   </section>
 
   <section class="wrap service">
     <h2>The Bug Clinic</h2>
-    <p class="price">Priced per engagement, by scope</p>
+    <p class="price">Priced per engagement, by scope — see <a href="/pricing.html" style="color:inherit">pricing</a></p>
     <p>Bring us code you own, or are authorized to submit, and we review it
       for logical bugs, hidden or undocumented behavior, and the kind of
       mistakes that pass code review but not production — unsafe patterns,
@@ -51,24 +58,41 @@
         withdraw the engagement at any point, which deletes the submitted
         material immediately.</li>
     </ol>
+    <h3>What we look for</h3>
+    <ul style="color: var(--muted); max-width: 680px;">
+      <li>Hardcoded secrets and credentials that shouldn't be in source</li>
+      <li>Unsafe patterns — dangerous eval/exec usage, shell injection risk,
+        disabled TLS verification, string-built SQL</li>
+      <li>Broken or missing authorization checks on sensitive actions</li>
+      <li>Logic that works for the tested case but breaks on an untested
+        assumption (off-by-one, inverted conditions, wrong defaults)</li>
+      <li>Outdated or known-vulnerable dependencies</li>
+      <li>Dead code paths and undocumented behavior that could surprise
+        the next person who touches it</li>
+    </ul>
   </section>
 
   <section class="wrap service">
     <h2>Small software engagements</h2>
-    <p class="price">Fixed-price, scoped up front</p>
+    <p class="price">Fixed-price, scoped up front — see <a href="/pricing.html" style="color:inherit">pricing</a></p>
     <p>Bug fixes, scripts, small integrations, test suites, and
       documentation — scoped and quoted before work starts, delivered for
-      your review.</p>
+      your review. Good for a well-defined piece of work with a clear
+      "done" state; not a fit for open-ended or large, multi-month builds.</p>
   </section>
 
   <section class="wrap contact">
     <h2>Start an engagement</h2>
+    <p>Use the <a href="/contact.html" style="color: var(--accent);">contact form</a>
+      or email us directly.</p>
+    <p><a class="cta" href="/contact.html">Start an engagement</a></p>
     <p><a class="cta-secondary" href="mailto:hello@mathcore.dev">hello@mathcore.dev</a></p>
   </section>
 </main>
 
 <footer class="site-footer wrap">
   <p>&copy; 2026 Mathcore. All rights reserved.</p>
+  <p><a href="/about.html">About</a> &middot; <a href="/faq.html">FAQ</a> &middot; <a href="/contact.html">Contact</a></p>
 </footer>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mathcore — security review and software engineering</title>
-<meta name="description" content="Mathcore: source-level security review (the Bug Clinic), small software engagements, and applied security tooling.">
+<meta name="description" content="Mathcore reviews source code for logical bugs, hidden behavior, and mistakes — and takes on small, fixed-price software engagements. You own what we look at; nothing is disclosed without your review.">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -13,7 +13,10 @@
     <a class="brand" href="/">mathcore<span class="dot">.dev</span></a>
     <nav>
       <a href="/services.html">Services</a>
-      <a href="/#contact">Contact</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -26,7 +29,16 @@
       logical bugs, hidden behavior, and mistakes that slipped past review —
       and we work through small software engagements end to end.
     </p>
-    <a class="cta" href="/services.html">See how it works</a>
+    <div class="ctas">
+      <a class="cta" href="/contact.html">Start an engagement</a>
+      <a class="cta-secondary" href="/services.html">See how it works</a>
+    </div>
+  </section>
+
+  <section class="stats wrap">
+    <div class="stat"><strong>Source-level only</strong><span>We never execute your code or touch a live system</span></div>
+    <div class="stat"><strong>Owner-reviewed</strong><span>Every finding is checked by a person before delivery</span></div>
+    <div class="stat"><strong>Fixed scope</strong><span>You know exactly what's examined, before anything starts</span></div>
   </section>
 
   <section class="wrap principles">
@@ -53,16 +65,39 @@
     </div>
   </section>
 
+  <section class="page-section wrap">
+    <h2>Why this matters</h2>
+    <p>Most of the damage in real software incidents doesn't come from
+      exotic zero-days. It comes from the ordinary stuff: a permission
+      check that's missing on one code path, a secret left in a config
+      file, a validation rule copy-pasted wrong, an assumption that held
+      in testing and broke in production. These bugs are boring to look
+      for and expensive to miss.</p>
+    <p>We built Mathcore around that gap — source-level review that's
+      careful about scope and authorization, aimed at the kind of mistake
+      that's easy to make and easy to overlook, not at chasing headline
+      vulnerabilities in systems we don't have permission to touch.</p>
+    <h3>Who this is for</h3>
+    <p>Small teams and solo developers who want a second set of eyes on
+      code before it ships, or on an existing codebase that's never had a
+      real review — without the overhead of a large audit firm or a
+      multi-week engagement.</p>
+  </section>
+
   <section class="wrap contact" id="contact">
     <h2>Get in touch</h2>
     <p>Tell us what you'd like reviewed and we'll send back an engagement
       agreement to sign before anything begins.</p>
-    <p><a class="cta-secondary" href="mailto:hello@mathcore.dev">hello@mathcore.dev</a></p>
+    <div class="ctas">
+      <a class="cta" href="/contact.html">Start an engagement</a>
+      <a class="cta-secondary" href="mailto:hello@mathcore.dev">hello@mathcore.dev</a>
+    </div>
   </section>
 </main>
 
 <footer class="site-footer wrap">
   <p>&copy; 2026 Mathcore. All rights reserved.</p>
+  <p><a href="/about.html">About</a> &middot; <a href="/faq.html">FAQ</a> &middot; <a href="/contact.html">Contact</a></p>
 </footer>
 </body>
 </html>

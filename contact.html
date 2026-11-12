@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Mathcore</title>
+<meta name="description" content="Start an engagement with Mathcore, or ask a question before you do.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">mathcore<span class="dot">.dev</span></a>
+    <nav>
+      <a href="/services.html">Services</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-intro wrap">
+    <h1>Start an engagement</h1>
+    <p class="lede">Tell us what you'd like reviewed or built. We'll reply
+      with a scope and a quote — nothing starts until you've agreed to
+      both in writing.</p>
+  </section>
+
+  <section class="wrap page-section">
+    <form id="contact-form">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required maxlength="120">
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required maxlength="200">
+      </div>
+      <div class="form-field">
+        <label for="company">Company (optional)</label>
+        <input id="company" name="company" type="text" maxlength="120">
+      </div>
+      <div class="form-field">
+        <label for="service">What are you interested in?</label>
+        <select id="service" name="service">
+          <option value="Bug Clinic">Bug Clinic — code review</option>
+          <option value="Software engagement">Small software engagement</option>
+          <option value="Not sure">Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="message">Tell us about it</label>
+        <textarea id="message" name="message" required minlength="10" maxlength="4000"
+          placeholder="What would you like reviewed or built? Rough size, timeline, and anything else useful."></textarea>
+      </div>
+      <!-- Honeypot: hidden from real visitors via CSS, left blank by them;
+           a filled value signals an automated submission. -->
+      <div class="form-field" style="position:absolute; left:-9999px;" aria-hidden="true">
+        <label for="website">Leave this blank</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="cta" type="submit">Send</button>
+      <p class="form-note">We'll reply by email. You can also write directly to
+        <a href="mailto:hello@mathcore.dev">hello@mathcore.dev</a> if you'd rather.</p>
+      <p id="form-status" class="form-status" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <p>&copy; 2026 Mathcore. All rights reserved.</p>
+  <p><a href="/about.html">About</a> &middot; <a href="/faq.html">FAQ</a> &middot; <a href="/contact.html">Contact</a></p>
+</footer>
+
+<script src="/js/contact.js"></script>
+</body>
+</html>
