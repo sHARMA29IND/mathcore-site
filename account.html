@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account — Mathcore</title>
+<meta name="description" content="Sign up or log in to your Mathcore account.">
+<link rel="canonical" href="https://mathcore.dev/account">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">mathcore<span class="dot">.dev</span></a>
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-intro wrap">
+    <h1>Account</h1>
+    <p class="lede" id="account-note">Sign up or log in. Email verification
+      is not yet available on this deployment (see <a href="/faq" style="color: var(--accent);">FAQ</a>)
+      — your account works, but is marked unverified until that's enabled.</p>
+  </section>
+
+  <section id="logged-out" class="wrap page-section" style="display:none;">
+    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+      <form id="signup-form" style="min-width:280px;">
+        <h2>Create an account</h2>
+        <div class="form-field"><label for="su-email">Email</label>
+          <input id="su-email" name="email" type="email" required maxlength="200"></div>
+        <div class="form-field"><label for="su-password">Password (10+ characters)</label>
+          <input id="su-password" name="password" type="password" required minlength="10" maxlength="200"></div>
+        <div style="position:absolute; left:-9999px;" aria-hidden="true">
+          <input name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="cta" type="submit">Sign up</button>
+        <p id="signup-status" class="form-status" role="status"></p>
+      </form>
+      <form id="login-form" style="min-width:280px;">
+        <h2>Log in</h2>
+        <div class="form-field"><label for="li-email">Email</label>
+          <input id="li-email" name="email" type="email" required maxlength="200"></div>
+        <div class="form-field"><label for="li-password">Password</label>
+          <input id="li-password" name="password" type="password" required maxlength="200"></div>
+        <button class="cta" type="submit">Log in</button>
+        <p id="login-status" class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="logged-in" class="wrap page-section" style="display:none;">
+    <h2>Signed in</h2>
+    <p id="me-info" class="form-note"></p>
+    <button id="logout-btn" class="cta-secondary" style="border:1px solid var(--border); background:none; color:var(--fg); padding:10px 20px; border-radius:8px; cursor:pointer;">Log out</button>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <p>&copy; 2026 Mathcore. All rights reserved.</p>
+  <p><a href="/about">About</a> &middot; <a href="/faq">FAQ</a> &middot; <a href="/legal">Legal</a> &middot; <a href="/contact">Contact</a></p>
+</footer>
+
+<script src="/js/account.js"></script>
+</body>
+</html>

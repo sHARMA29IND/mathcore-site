@@ -6,3 +6,8 @@ compatibility_date = "2026-11-12"
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
 id = "626e8d809cfd4243a9c4aac0478933e5"
+
+[[d1_databases]]
+binding = "USERS_DB"
+database_name = "mathcore-site-users"
+database_id = "9d78426c-abaf-4f2b-b3d7-be57307f1d10"
